@@ -1,0 +1,296 @@
+/* ---------- COLORS TAKEN FROM THE SCREENSHOT ----------
+   Background   #05070f  (almost black)
+   Dark boxes   #0e1322  (dark navy)
+   Borders      #1c2438
+   Muted text   #8d97b3  (grey-blue)
+   Blue         #3b7bff
+   Violet       #8b5cf6
+   Teal         #22d3c5
+------------------------------------------------------- */
+
+/* ---------- BASIC RESET ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  line-height: 1.6;
+  /* near-black background with a faint blue glow on the right
+     and a faint purple glow on the left, like the screenshot */
+  background-color: #05070f;
+  background-image:
+    radial-gradient(circle at 85% 20%, rgba(59, 123, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 10% 60%, rgba(139, 92, 246, 0.10), transparent 40%);
+  background-attachment: fixed;
+}
+
+/* Light mode: JavaScript adds the class "light" to the body */
+body.light {
+  background-color: #f4f7fc;
+  background-image: none;
+  color: #0d1224;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: rgba(5, 7, 15, 0.9);
+  border-bottom: 1px solid #1c2438;
+}
+
+.logo {
+  font-weight: bold;
+  font-size: 20px;
+  color: #3b7bff;
+}
+
+.navbar nav a {
+  margin: 0 10px;
+  font-size: 14px;
+  color: #8d97b3;
+}
+
+.navbar nav a:hover {
+  color: white;
+}
+
+#themeBtn {
+  background: none;
+  border: 1px solid #1c2438;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+  padding: 20px;
+}
+
+.hero h1 {
+  font-size: 56px;
+}
+
+.hero h2 {
+  font-weight: normal;
+  color: #c3cbe0;   /* light grey-blue subtitle */
+}
+
+.hero p {
+  color: #8d97b3;
+}
+
+/* Blue -> violet -> teal gradient text (same as the name in the screenshot) */
+.gradient {
+  background: linear-gradient(to right, #3b7bff, #8b5cf6, #22d3c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* The small rounded "Visitor" box */
+.badge {
+  border: 1px solid #1c2438;
+  background-color: #0e1322;
+  color: #8d97b3;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* ---------- BUTTONS ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 8px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+}
+
+/* Blue to teal button, like "Explore Projects" */
+.blue {
+  background: linear-gradient(to right, #3b7bff, #22d3c5);
+  box-shadow: 0 8px 25px rgba(59, 123, 255, 0.35);   /* soft blue glow */
+}
+
+/* Dark button, like "Get In Touch" */
+.dark {
+  background-color: #0e1322;
+  border: 1px solid #1c2438;
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 70px 30px;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-size: 34px;
+  margin-bottom: 30px;
+  background: linear-gradient(to right, #3b7bff, #8b5cf6, #22d3c5);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.center-text {
+  text-align: center;
+  color: #8d97b3;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card {
+  background-color: #0e1322;
+  border: 1px solid #1c2438;
+  border-radius: 14px;
+  padding: 25px;
+  min-width: 200px;
+  flex: 1;
+  text-align: center;
+}
+
+.card:hover {
+  border-color: #3b7bff;   /* blue border on hover */
+}
+
+.card h3 {
+  color: white;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #8d97b3;
+}
+
+.card a {
+  color: #22d3c5;
+  font-weight: bold;
+}
+
+/* Skill cards: blue, violet and teal text */
+#skills .card {
+  font-size: 20px;
+  font-weight: bold;
+}
+#skills .card:nth-child(1) { color: #3b7bff; }
+#skills .card:nth-child(2) { color: #8b5cf6; }
+#skills .card:nth-child(3) { color: #22d3c5; }
+#skills .card:nth-child(4) { color: #3b7bff; }
+
+.wide {
+  max-width: 500px;
+  margin: auto;
+}
+
+/* ---------- CONTACT FORM ---------- */
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input, textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #1c2438;
+  background-color: #0e1322;
+  color: white;
+  font-size: 15px;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #3b7bff;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  text-align: center;
+  padding: 25px;
+  color: #8d97b3;
+  border-top: 1px solid #1c2438;
+}
+
+/* ---------- LIGHT MODE COLORS ---------- */
+body.light .navbar,
+body.light .card,
+body.light .badge,
+body.light .dark,
+body.light input,
+body.light textarea {
+  background-color: white;
+  color: #0d1224;
+  border-color: #dde3f0;
+}
+
+body.light .hero h2,
+body.light .hero p,
+body.light .center-text,
+body.light .card p,
+body.light .navbar nav a,
+body.light footer {
+  color: #586180;
+}
+
+body.light .card h3 {
+  color: #0d1224;
+}
+
+/* ---------- MOBILE SCREENS ---------- */
+@media (max-width: 700px) {
+  .navbar nav {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 36px;
+  }
+}
